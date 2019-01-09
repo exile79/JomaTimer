@@ -60,6 +60,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Task.cs" />
+    <Compile Include="TaskParser.cs" />
     <EmbeddedResource Include="AddTaskForm.resx">
       <DependentUpon>AddTaskForm.cs</DependentUpon>
     </EmbeddedResource>
