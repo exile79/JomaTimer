@@ -30,12 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             this.taskListView = new System.Windows.Forms.ListView();
+            this.taskColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.timeColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.remainingColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addTaskToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteTaskToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteFinishedTasksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.taskColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.timeColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,16 +44,32 @@
             // 
             this.taskListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.taskColumnHeader,
-            this.timeColumnHeader});
+            this.timeColumnHeader,
+            this.remainingColumnHeader});
             this.taskListView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.taskListView.Location = new System.Drawing.Point(0, 0);
             this.taskListView.Name = "taskListView";
-            this.taskListView.Size = new System.Drawing.Size(432, 170);
+            this.taskListView.Size = new System.Drawing.Size(523, 170);
             this.taskListView.TabIndex = 0;
             this.taskListView.UseCompatibleStateImageBehavior = false;
             this.taskListView.View = System.Windows.Forms.View.Details;
-            this.taskListView.KeyUp += new System.Windows.Forms.KeyEventHandler(this.listView1_KeyUp);
+            this.taskListView.KeyUp += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyUp);
             this.taskListView.MouseUp += new System.Windows.Forms.MouseEventHandler(this.listView1_MouseUp);
+            // 
+            // taskColumnHeader
+            // 
+            this.taskColumnHeader.Text = "Task";
+            this.taskColumnHeader.Width = 246;
+            // 
+            // timeColumnHeader
+            // 
+            this.timeColumnHeader.Text = "Time";
+            this.timeColumnHeader.Width = 123;
+            // 
+            // remainingColumnHeader
+            // 
+            this.remainingColumnHeader.Text = "Remaining";
+            this.remainingColumnHeader.Width = 141;
             // 
             // contextMenuStrip1
             // 
@@ -84,24 +101,15 @@
             this.deleteFinishedTasksToolStripMenuItem.Text = "Delete Finished Tasks";
             this.deleteFinishedTasksToolStripMenuItem.Click += new System.EventHandler(this.deleteFinishedTasksToolStripMenuItem_Click);
             // 
-            // taskColumnHeader
-            // 
-            this.taskColumnHeader.Text = "Task";
-            this.taskColumnHeader.Width = 191;
-            // 
-            // timeColumnHeader
-            // 
-            this.timeColumnHeader.Text = "Time";
-            this.timeColumnHeader.Width = 220;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(432, 170);
+            this.ClientSize = new System.Drawing.Size(523, 170);
             this.Controls.Add(this.taskListView);
             this.Name = "MainForm";
             this.Text = "Joma Timer";
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyUp);
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -116,5 +124,6 @@
         private System.Windows.Forms.ToolStripMenuItem deleteFinishedTasksToolStripMenuItem;
         private System.Windows.Forms.ColumnHeader taskColumnHeader;
         private System.Windows.Forms.ColumnHeader timeColumnHeader;
+        private System.Windows.Forms.ColumnHeader remainingColumnHeader;
     }
 }
